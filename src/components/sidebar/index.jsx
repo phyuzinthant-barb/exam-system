@@ -6,12 +6,16 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 const { Header, Sider, Content } = Layout;
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  let location = useLocation();
-  console.log(location);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleClick = (obj) => {
+    navigate(obj.key);
+  }
 
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -30,6 +34,7 @@ const Sidebar = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[location.pathname]}
+          onClick={handleClick}
           items={[
             {
               key: "/students",

@@ -7,6 +7,7 @@ const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 const AdminLogin = () => (
+  <div style={{display:'flex', height:'100vh', alignItems:"center"}}>
   <Form
     name="basic"
     labelCol={{
@@ -74,6 +75,7 @@ const AdminLogin = () => (
       </Button>
     </Form.Item>
   </Form>
+  </div>
 );
 
 export default AdminLogin;
