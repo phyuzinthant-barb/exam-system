@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Input, Select } from "antd";
+import { Button, Input, Form, Select } from "antd";
 import Layout from "../../../components/layout";
 import { useNavigate } from "react-router-dom";
 
@@ -12,23 +12,11 @@ const layout = {
   },
 };
 
-/* eslint-disable no-template-curly-in-string */
-const validateMessages = {
-  required: "${label} is required!",
-  types: {
-    email: "${label} is not a valid email!",
-    number: "${label} is not a valid number!",
-  },
-  number: {
-    range: "${label} must be between ${min} and ${max}",
-  },
-};
-/* eslint-enable no-template-curly-in-string */
-
 const onFinish = (values) => {
   console.log(values);
 };
-const Edit = () => {
+
+const Create = () => {
   const navigate = useNavigate();
 
   return (
@@ -40,11 +28,10 @@ const Edit = () => {
         style={{
           maxWidth: 600,
           margin: "0 auto",
-        }}
-        validateMessages={validateMessages}>
+        }}>
         <Form.Item
-          name={["user", "name"]}
-          label="Name"
+          name={["categoryName", "name"]}
+          label="Category"
           rules={[
             {
               required: true,
@@ -53,28 +40,7 @@ const Edit = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          name={["user", "email"]}
-          label="Email"
-          rules={[
-            {
-              required: true,
-              type: "email",
-            },
-          ]}>
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name={["user", "phNum"]}
-          label="Phone Number"
-          rules={[
-            {
-              required: true,
-            },
-          ]}>
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name={["user", "level"]}
+          name={["categoryName", "level"]}
           label="Level"
           rules={[
             {
@@ -93,12 +59,13 @@ const Edit = () => {
             offset: 8,
           }}>
           <Button type="primary" htmlType="submit">
-            Update
+            Create
           </Button>
           <Button
-            type="link"
+            style={{ marginLeft: "5px" }}
+            type="primary"
             onClick={() => {
-              navigate("/students");
+              navigate("/categories");
             }}>
             Cancel
           </Button>
@@ -107,4 +74,5 @@ const Edit = () => {
     </Layout>
   );
 };
-export default Edit;
+
+export default Create;

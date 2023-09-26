@@ -1,12 +1,18 @@
 import React from "react";
 import Layout from "../../../components/layout";
-import { Space, Table, Tag, Button } from "antd";
+import { Space, Table, Button } from "antd";
 import { useNavigate, Link } from "react-router-dom";
+import { PlusOutlined } from "@ant-design/icons";
 
 const Students = () => {
   const navigate = useNavigate();
 
   const columns = [
+    {
+      title: "StuID",
+      dataIndex: "id",
+      key: "id",
+    },
     {
       title: "Name",
       dataIndex: "name",
@@ -14,14 +20,14 @@ const Students = () => {
       render: (text) => <a>{text}</a>,
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
       title: "Email",
       dataIndex: "email",
       key: "email",
+    },
+    {
+      title: "Level",
+      dataIndex: "level",
+      key: "level",
     },
     {
       title: "Action",
@@ -36,26 +42,34 @@ const Students = () => {
   const data = [
     {
       key: "1",
+      id: 1,
       name: "Su Su",
-      age: 23,
       email: "susu@gmail.com",
-      tags: ["nice", "developer"],
+      level: 1,
     },
     {
       key: "2",
+      id: 2,
       name: "Mg Mg",
-      age: 18,
       email: "mgmg@gmail.com",
-      tags: ["loser"],
+      level: 2,
+    },
+    {
+      key: "3",
+      id: 3,
+      name: "Mg Soe",
+      email: "mgsoe@gmail.com",
+      level: 3,
     },
   ];
   return (
     <Layout>
       <Button
-            type="link"
+            type="primary"
             onClick={() => {
               navigate("/students/create");
-            }}>
+            }}
+            icon={<PlusOutlined />}>
             Add New
           </Button>
       <Table columns={columns} dataSource={data} />

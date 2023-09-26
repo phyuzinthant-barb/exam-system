@@ -74,17 +74,17 @@ const Create = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          name={["user", "field"]}
-          label="Field"
+          name={["user", "level"]}
+          label="Student's Level"
           rules={[
             {
               required: true,
             },
           ]}>
           <Select allowClear>
-            <Select.Option value="english">English</Select.Option>
-            <Select.Option value="myanmar">Myanmar</Select.Option>
-            <Select.Option value="maths">Maths</Select.Option>
+            <Select.Option value="level1">Level 1</Select.Option>
+            <Select.Option value="level2">Level 2</Select.Option>
+            <Select.Option value="level3">Level 3</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item
@@ -96,8 +96,8 @@ const Create = () => {
             Create
           </Button>
           <Button
-            type="link"
-            to="/students"
+            style={{ marginLeft: "5px" }}
+            type="primary"
             onClick={() => {
               navigate("/students");
             }}>
