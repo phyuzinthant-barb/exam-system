@@ -2,10 +2,12 @@ import { Button, Form, Input, Radio, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import React, { useState } from "react";
 import Layout from "../../../components/layout";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState("horizontal");
+  const navigate = useNavigate();
 
   const onFormLayoutChange = ({ layout }) => {
     setFormLayout(layout);
@@ -15,7 +17,7 @@ const App = () => {
     formLayout === "horizontal"
       ? {
           labelCol: {
-            span: 4,
+            span: 5,
           },
           wrapperCol: {
             span: 14,
@@ -35,7 +37,6 @@ const App = () => {
 
   return (
     <Layout>
-
       <Form
         {...formItemLayout}
         layout={formLayout}
@@ -44,7 +45,6 @@ const App = () => {
           layout: formLayout,
         }}
         onValuesChange={onFormLayoutChange}>
-
         <Form.Item
           label="Category"
           name="category"
@@ -91,7 +91,7 @@ const App = () => {
         <Form.Item label="Option 3">
           <TextArea placeholder="input option 3..." />
         </Form.Item>
-        
+
         <Form.Item label="Option 4">
           <TextArea placeholder="input option 4..." />
         </Form.Item>
@@ -114,7 +114,21 @@ const App = () => {
         </Form.Item>
 
         <Form.Item {...buttonItemLayout}>
-          <Button type="primary">Submit</Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              navigate("/questions");
+            }}>
+            All Questions
+          </Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              navigate("/questions/create");
+            }}
+            style={{marginLeft: '10px'}}>
+            Next Question
+          </Button>
         </Form.Item>
       </Form>
     </Layout>

@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../../components/layout";
-import { Space, Table, Tag, Button } from "antd";
+import { Space, Table, Button } from "antd";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
 
@@ -22,22 +22,19 @@ const index = () => {
       dataIndex: "category",
       key: "category",
       colSpan: 1,
-      render: (value, row, index) => {
-        const obj = {
-          children: value,
-          props: {}
+      onCell: (record, rowIndex) => {
+        const categoryCount = dataSource.filter(
+          (item) => item.category === record.category
+        ).length;
+        return {
+          rowSpan:
+            rowIndex === 0 ||
+            (rowIndex > 0 &&
+              record.category !== dataSource[rowIndex - 1].category)
+              ? categoryCount
+              : 0,
         };
-        if (index % 3 === 0) {
-          obj.props.rowSpan = 3;
-        }
-        if (index % 3 === 1) {
-          obj.props.rowSpan = 0;
-        }
-        if (index % 3 === 2) {
-          obj.props.rowSpan = 0;
-        }
-        return obj;
-      }
+      },
     },
     {
       title: "Level",
@@ -54,7 +51,7 @@ const index = () => {
       ),
     },
   ];
-  const data = [
+  const dataSource = [
     {
       key: "1",
       category: "Programming",
@@ -96,7 +93,7 @@ const index = () => {
         icon={<PlusOutlined />}>
         Add New
       </Button>
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={dataSource} />
     </Layout>
   );
 };

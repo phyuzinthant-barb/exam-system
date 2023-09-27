@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Chart from "react-google-charts";
 import Layout from "../../../components/layout";
-import { Space, Table, Button, Form, Select } from "antd";
-import { useNavigate, Link } from "react-router-dom";
+import { Table, Form, Select } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const onChange = (date, dateString) => {
   console.log(date, dateString);
@@ -39,19 +39,19 @@ const Reports = () => {
     },
     {
       title: "Name",
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "stuName",
+      key: "stuName",
       render: (text) => <a>{text}</a>,
     },
     {
       title: "Level",
-      dataIndex: "level",
-      key: "level",
+      dataIndex: "stuLevel",
+      key: "stuLevel",
     },
     {
       title: "Total Marks",
       dataIndex: "totalMarks",
-      key: "marks",
+      key: "totalMarks",
     },
     {
       title: "Obt Marks",
@@ -66,28 +66,28 @@ const Reports = () => {
   ];
   const data = [
     {
-      key: "1",
+      key: "r1",
       id: 1,
-      name: "Su Su",
-      level: 1,
+      stuName: "Su Su",
+      stuLevel: 1,
       totalMarks: 100,
       obtMarks: 20,
       status: 'fail',
     },
     {
-      key: "2",
+      key: "r2",
       id: 2,
-      name: "Mg Mg",
-      level: 2,
+      stuName: "Mg Mg",
+      stuLevel: 2,
       totalMarks: 100,
       obtMarks: 55,
       status: 'pass',
     },
     {
-      key: "3",
+      key: "r3",
       id: 3,
-      name: "Mg Soe",
-      level: 3,
+      stuName: "Mg Soe",
+      stuLevel: 3,
       totalMarks: 100,
       obtMarks: 90,
       status: 'pass',
@@ -105,11 +105,11 @@ const Reports = () => {
           margin: "0",
         }}>
       <Form.Item
-        name={["categoryName", "name"]}
+        name={["categoryName", "catName"]}
         label="Category">
         <Select allowClear>
-          <Select.Option value="name">Programming</Select.Option>
-          <Select.Option value="name">English</Select.Option>
+          <Select.Option value="catName1">Programming</Select.Option>
+          <Select.Option value="catName2">English</Select.Option>
         </Select>
       </Form.Item>
       </Form>

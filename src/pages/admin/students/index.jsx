@@ -10,8 +10,8 @@ const Students = () => {
   const columns = [
     {
       title: "StuID",
-      dataIndex: "id",
-      key: "id",
+      dataIndex: "stuId",
+      key: "stuId",
     },
     {
       title: "Name",
@@ -41,22 +41,22 @@ const Students = () => {
   ];
   const data = [
     {
-      key: "1",
-      id: 1,
+      key: "s1",
+      stuId: 1,
       name: "Su Su",
       email: "susu@gmail.com",
       level: 1,
     },
     {
-      key: "2",
-      id: 2,
+      key: "s2",
+      stuId: 2,
       name: "Mg Mg",
       email: "mgmg@gmail.com",
       level: 2,
     },
     {
-      key: "3",
-      id: 3,
+      key: "s3",
+      stuId: 3,
       name: "Mg Soe",
       email: "mgsoe@gmail.com",
       level: 3,

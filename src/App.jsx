@@ -15,6 +15,7 @@ import ExamsCreate from "./pages/admin/exams/Create";
 import AdminLogout from "./pages/admin/adminProfile/Logout";
 import AdminChgPassword from "./pages/admin/adminProfile/ChangePassword";
 import QuestionCreate from "./pages/admin/questions/Create";
+import DetailsQuestions from "./pages/admin/questions/DetailsQuestions";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           </Route>
           <Route path="questions">
             <Route index element={<Questions />} />
+            <Route path=":id/details" element={<DetailsQuestions/>} />
             <Route path="create" element={<QuestionCreate />} />
           </Route>
           <Route path="categories">
